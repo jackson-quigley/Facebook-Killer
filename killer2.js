@@ -27,7 +27,7 @@ var xpath = require('casper').selectXPath;
 var mouse = require("mouse").create(casper)
 var username = casper.cli.get("user")
 var password = casper.cli.get("pass")
-var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
+//var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
 var waitTime = 4000;
 
 /*Login and such*/
@@ -54,6 +54,8 @@ casper.then(function(){
 		this.capture('login.png');
 	}, 10000);
 });
+
+var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
 
 casper.thenOpen(search, function _waitAfterStart() {
 	casper.wait(waitTime, function() {});
