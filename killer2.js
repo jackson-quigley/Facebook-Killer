@@ -17,8 +17,8 @@ var config = require("./config.json")
 
 
 /*vars*/
-var term1= "eat"
-var term2= "pant"
+var term1= "test"
+var term2= "term"
 var search = "search"
 var utils = require("utils");
 var fs = require('fs');
@@ -26,7 +26,7 @@ var xpath = require('casper').selectXPath;
 var mouse = require("mouse").create(casper)
 var username = casper.cli.get("user")
 var password = casper.cli.get("pass")
-var search = "https://www.facebook.com/search/top/?q=" + term1 + " " +  term2;
+var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
 var waitTime = 4000;
 
 /*Login and such*/
@@ -46,14 +46,14 @@ casper.then(function(){
 		password : password
 	});
 });
-
+/*
 casper.then(function(){
 	this.waitForSelector("#pagelet_composer", function pass(){
 		console.log("Logged In Zuccessfully");
 		this.capture('login.png');
 	}, 10000);
 });
-
+*/
 casper.thenOpen(search, function _waitAfterStart() {
 	casper.wait(waitTime, function() {});
 	console.log("Your random search is " + term1+ " " + term2 );
@@ -65,7 +65,8 @@ casper.then(function(){
 });
 
 casper.then(function(){
-	document.getElementById("u_p_1");
+	casper.click("button[data-bt=\'{\"ct\":\"like_page\"}\']");
+	casper.wait(waitTime, function() {});
 });
 
 casper.then(function(){
