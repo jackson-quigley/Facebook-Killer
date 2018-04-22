@@ -7,3 +7,5 @@ Designed to mess with the Facebook algorithm by liking posts based on a random s
 I'm really glad this works and I'm sure my friends feel the same. Disregard the spaghetti and the fact that its not user friendly. Thanks.
 
 This is the product of three thinkpads and a mac.
+
+usage: <pre> bash facebook-killer-remote.sh </pre>
