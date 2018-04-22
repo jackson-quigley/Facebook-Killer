@@ -10,7 +10,9 @@ num=$(dialog --title "Facebook Killer" --inputbox "Enter the number of times you
 
 dialog --title "Facebook Killer" --infobox "The program is now messing with the algorithms of facebook. Please be patient..." 20 80
 
-casperjs killer2.js --user=$user --pass=$pass > /dev/null
+for i in `seq 1 $num`; do
+casperjs killer2.js --user=$user --pass=$pass > /dev/null;
+done
 
 dialog --title "Facebook Killer" --msgbox "The algorithm has been messed with. Thank you for your patience." 20 80
 
