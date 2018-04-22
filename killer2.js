@@ -29,7 +29,8 @@ var username = casper.cli.get("user")
 var password = casper.cli.get("pass")
 //var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
 var waitTime = 4000;
-
+var i;
+for (i = 0; i < 4; i++){
 /*Login and such*/
 
 casper.start().thenOpen(config['urls']['loginUrl'], function() {
@@ -77,7 +78,7 @@ casper.then(function(){
 });
 
 
-
+}
 casper.run(function(){
 	this.exit();
 });
