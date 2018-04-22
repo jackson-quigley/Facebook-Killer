@@ -68,7 +68,7 @@ for (i= 0; i < 5; i++){
 	    console.log("Your random search is " + term1+ " " + term2 );
     });
 
-    casper.then(function _waitAfterStart() {
+    casper.then(function() {
 	    casper.click("button[data-bt=\'{\"ct\":\"like_page\"}\']");
 	    casper.wait(waitTime, function() {});
     });
