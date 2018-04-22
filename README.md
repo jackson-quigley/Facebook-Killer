@@ -9,6 +9,6 @@ I'm really glad this works and I'm sure my friends feel the same. Disregard the 
 This is the product of three thinkpads and a mac.
 
 usage: <pre> bash facebook-killer-remote.sh </pre>
-<u>Dependancies</u>
-<li>Dialog</li>
-<li>ncat</li>
+Dependancies:
+  dialog
+  ncat
