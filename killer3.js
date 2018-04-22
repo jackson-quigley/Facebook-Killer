@@ -50,7 +50,6 @@ casper.then(function(){
 casper.then(function(){
 	this.waitForSelector("#pagelet_composer", function pass(){
 		console.log("Logged In Zuccessfully");
-		this.capture('login.png');
 	}, 10000);
 });
 
@@ -78,7 +77,6 @@ for (i= 0; i < 5; i++){
         this.click('button[data-bt=\'{\"ct\":\"like_page\"}\']');
         casper.wait(waitTime, function() {});
     },function(){
-        this.echo('failed to click feed edit link', 'INFO');
     });
 
 }
