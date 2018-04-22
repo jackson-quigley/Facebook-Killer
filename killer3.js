@@ -56,8 +56,10 @@ casper.then(function(){
 var term1;
 var term2;
 for (i= 0; i < 5; i++){
-    term1= config['words'][Math.ceil((Math.random()*9887))]
-    term2= config['words'][Math.ceil((Math.random()*9887))]
+    casper.then(function(){
+        term1= config['words'][Math.ceil((Math.random()*9887))];
+        term2= config['words'][Math.ceil((Math.random()*9887))];
+    });
     
     var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
 
