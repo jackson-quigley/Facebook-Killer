@@ -61,12 +61,10 @@ for (i= 0; i < 5; i++){
         term1= config['words'][Math.ceil((Math.random()*9887))];
         term2= config['words'][Math.ceil((Math.random()*9887))];
     });
-    var search
-    casper.then(function(){
-        search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
-    });
+    
+    search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
 
-    casper.thenOpen(search, function _waitAfterStart() {
+    casper.thenOpen(search, function() {
 	    console.log("Your random search is " + term1+ " " + term2 );
     });
 
