@@ -13,7 +13,7 @@ var casper = require('casper').create({
 
 /*function*/
 var config = require("./config.json")
-var i;
+var i = 0;
 
 
 
@@ -30,7 +30,7 @@ var password = casper.cli.get("pass")
 var waitTime = 4000;
 
 /*Login and such*/
-for (i= 0; i < 5; i++){
+
 casper.start().thenOpen(config['urls']['loginUrl'], function() {
 	console.log(username);
 	console.log("Logging in...");
@@ -54,15 +54,18 @@ casper.then(function(){
 });
 
 
-
+while(i < 4){
     var term1;
     var term2;
+    var rand1 = Math.ceil((Math.random()*9887))
+    var rand2 = Math.ceil((Math.random()*9887))
+    var search;
     casper.then(function(){
-        term1= config['words'][Math.ceil((Math.random()*9887))];
-        term2= config['words'][Math.ceil((Math.random()*9887))];
+        term1= config['words'][rand1];
+        term2= config['words'][rand2];
+        search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
     });
-    
-    var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
+
 
     casper.thenOpen(search, function _waitAfterStart() {
 	    console.log("Your random search is " + term1+ " " + term2 );
