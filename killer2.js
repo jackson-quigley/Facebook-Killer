@@ -16,8 +16,7 @@ var config = require("./config.json")
 var i;
 
 
-var term1= config['words'][Math.ceil((Math.random()*9887))]
-var term2= config['words'][Math.ceil((Math.random()*9887))]
+
 
 
 /*vars*/
@@ -55,29 +54,34 @@ casper.then(function(){
 	}, 10000);
 });
 
-var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
+var term1;
+var term2;
+for (i= 0; i < 5; i++){
+    term1= config['words'][Math.ceil((Math.random()*9887))]
+    term2= config['words'][Math.ceil((Math.random()*9887))]
+    
+    var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
 
-casper.thenOpen(search, function _waitAfterStart() {
-	casper.wait(waitTime, function() {});
-	console.log("Your random search is " + term1+ " " + term2 );
-});
+    casper.thenOpen(search, function _waitAfterStart() {
+	    console.log("Your random search is " + term1+ " " + term2 );
+    });
 
+    casper.then(function(){
+	    casper.click("button[data-bt=\'{\"ct\":\"like_page\"}\']");
+	    casper.wait(waitTime, function() {});
+    });
 
-casper.then(function(){
-		this.capture('search.png');
-});
+    casper.then(function(){
+		    this.capture('search2.png');
+    });
+    casper.waitForSelector('button[data-bt=\'{\"ct\":\"like_page\"}\']', function _waitAfterClick() {
+        this.click('button[data-bt=\'{\"ct\":\"like_page\"}\']');
+        casper.wait(waitTime, function() {});
+    },function(){
+        this.echo('failed to click feed edit link', 'INFO');
+    });
 
-casper.then(function(){
-	casper.click("button[data-bt=\'{\"ct\":\"like_page\"}\']");
-	casper.wait(waitTime, function() {});
-});
-
-casper.then(function(){
-		this.capture('search2.png');
-});
-
-
-
+}
 casper.run(function(){
 	this.exit();
 });
