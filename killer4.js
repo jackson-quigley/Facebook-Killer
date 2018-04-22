@@ -69,7 +69,6 @@ while(i < 4){
     
     casper.waitForSelector("button[data-bt=\'{\"ct\":\"like_page\"}\']", function _waitAfterClick() {
         this.click("button[data-bt=\'{\"ct\":\"like_page\"}\']");
-        casper.wait(waitTime, function() {});
         },function(){
     this.echo('failed to click feed edit link', 'INFO');
 });
