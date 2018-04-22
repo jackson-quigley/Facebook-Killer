@@ -11,6 +11,6 @@ echo $num
 echo $whatever
 
 for i in `seq 1 $num`; do
-casperjs killer2.js --user=$user --pass=$pass #> /dev/null;
+casperjs Pacifier.js --user=$user --pass=$pass #> /dev/null;
 done
 
