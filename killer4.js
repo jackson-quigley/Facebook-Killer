@@ -84,7 +84,7 @@ while(i < 4){
         casper.wait(waitTime, function() {});
     },function(){
     });
-
+    i++;
 }
 casper.run(function(){
 	this.exit();
