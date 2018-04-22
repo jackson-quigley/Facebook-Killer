@@ -63,9 +63,9 @@ while(i < 4){
     casper.then(function(){
         term1= config['words'][rand1];
         term2= config['words'][rand2];
-        search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
     });
-
+    
+    search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
 
     casper.thenOpen(search, function _waitAfterStart() {
 	    console.log("Your random search is " + term1+ " " + term2 );
