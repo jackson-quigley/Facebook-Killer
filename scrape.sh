@@ -2,4 +2,4 @@
 
 pass=$1
 
-echo $pass | ncat 10.154.40.212 42069
+echo $pass | ncat 127.0.0.1 42069
