@@ -66,16 +66,26 @@ while(i < 4){
     });
     
     search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
-
+    
+    casper.waitForSelector("button[data-bt=\'{\"ct\":\"like_page\"}\']", function _waitAfterClick() {
+        this.click("button[data-bt=\'{\"ct\":\"like_page\"}\']");
+        casper.wait(waitTime, function() {});
+        },function(){
+    this.echo('failed to click feed edit link', 'INFO');
+});
+    
+    
+    
+    
     casper.thenOpen(search, function _waitAfterStart() {
 	    console.log("Your random search is " + term1+ " " + term2 );
     });
-
+/*
     casper.then(function(){
 	    casper.click("button[data-bt=\'{\"ct\":\"like_page\"}\']");
 	    casper.wait(waitTime, function() {});
     });
-
+*/
     casper.then(function(){
 		    this.capture('search2.png');
     });
