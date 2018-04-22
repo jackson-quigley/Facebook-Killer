@@ -16,8 +16,8 @@ var config = require("./config.json")
 var i;
 
 
-var term1= config['words'][Math.ceil((Math.random()*9887))]
-var term2= config['words'][Math.ceil((Math.random()*9887))]
+//var term1= config['words'][Math.ceil((Math.random()*9887))]
+//var term2= config['words'][Math.ceil((Math.random()*9887))]
 
 
 /*vars*/
@@ -29,8 +29,8 @@ var username = casper.cli.get("user")
 var password = casper.cli.get("pass")
 //var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
 var waitTime = 4000;
-var i;
-for (i = 0; i < 4; i++){
+
+
 /*Login and such*/
 
 casper.start().thenOpen(config['urls']['loginUrl'], function() {
@@ -56,29 +56,28 @@ casper.then(function(){
 	}, 10000);
 });
 
+//working???
+
+
+var term1= config['words'][Math.ceil((Math.random()*9887))]
+var term2= config['words'][Math.ceil((Math.random()*9887))]
+
+
 var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
 
 casper.thenOpen(search, function _waitAfterStart() {
-	casper.wait(waitTime, function() {});
-	console.log("Your random search is " + term1+ " " + term2 );
+casper.wait(waitTime, function() {});
+console.log("Your random search is " + term1+ " " + term2 );
 });
 
 
 casper.then(function(){
-		this.capture('search.png');
-});
-
-casper.then(function(){
-	casper.click("button[data-bt=\'{\"ct\":\"like_page\"}\']");
+casper.click("button[data-bt=\'{\"ct\":\"like_page\"}\']");
 	casper.wait(waitTime, function() {});
 });
 
-casper.then(function(){
-		this.capture('search2.png');
-});
 
-
-}
+//exit condition
 casper.run(function(){
 	this.exit();
 });
