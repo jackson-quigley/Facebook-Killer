@@ -53,15 +53,17 @@ casper.then(function(){
 	}, 10000);
 });
 
-var term1;
-var term2;
+
 for (i= 0; i < 5; i++){
+    var term1;
+    var term2;
     casper.then(function(){
         term1= config['words'][Math.ceil((Math.random()*9887))];
         term2= config['words'][Math.ceil((Math.random()*9887))];
     });
-    
-    var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
+    casper.then(function(){
+        var search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
+    });
 
     casper.thenOpen(search, function _waitAfterStart() {
 	    console.log("Your random search is " + term1+ " " + term2 );
