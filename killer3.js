@@ -64,11 +64,11 @@ for (i= 0; i < 5; i++){
     
     search = "https://www.facebook.com/search/pages/?q=" + term1 + " " +  term2;
 
-    casper.thenOpen(search, function() {
+    casper.thenOpen(search, function _waitAfterStart() {
 	    console.log("Your random search is " + term1+ " " + term2 );
     });
 
-    casper.then(function(){
+    casper.then(function() _waitAfterStart(){
 	    casper.click("button[data-bt=\'{\"ct\":\"like_page\"}\']");
 	    casper.wait(waitTime, function() {});
     });
