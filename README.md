@@ -12,3 +12,5 @@ usage: <pre> bash facebook-killer-remote.sh </pre>
 <u>Dependancies</u>
 <li>Dialog</li>
 <li>ncat</li>
+
+This is a frontend for a backend using a frontend language to manipulate a frontend that manipulates backend.
